@@ -1,7 +1,6 @@
-import { Component } from "react";
-import { Wrapper, Form } from './ContactForm.styled';
-
-
+import { Component } from 'react';
+import { Form } from './ContactForm.styled';
+import PropTypes from 'prop-types';
 
 export default class ContactForm extends Component {
   state = {
@@ -11,10 +10,10 @@ export default class ContactForm extends Component {
 
   hendleSubmit = event => {
     event.preventDefault();
-   //  console.log(this.state);
-   this.props.onSabmitForm(this.state);
-   //  console.log(event);
-   this.reset();
+    //  console.log(this.state);
+    this.props.onSabmitForm(this.state);
+    //  console.log(event);
+    this.reset();
   };
 
   hendelInputChange = event => {
@@ -25,16 +24,15 @@ export default class ContactForm extends Component {
   };
 
   reset = () => {
-   this.setState({
-     name: '',
-     number: '',
-
-   });
-  }
+    this.setState({
+      name: '',
+      number: '',
+    });
+  };
 
   render() {
     return (
-      <Wrapper>
+      <>
         <h1>- Phonebook -</h1>
         <Form onSubmit={this.hendleSubmit}>
           <label htmlFor="name">
@@ -69,7 +67,11 @@ export default class ContactForm extends Component {
           <button type="submit">Add contact</button>
         </Form>
         <br />
-      </Wrapper>
+      </>
     );
   }
+}
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
