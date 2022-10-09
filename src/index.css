@@ -28,3 +28,19 @@ p {
 ul {
     list-style: none;
 }
+
+input {
+    background: inherit;
+    outline: inherit;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #9b8c8c;
+    font-size: 1em;
+    color: #9b8c8c;
+    margin-left: 10px;
+}
+
+input:focus,
+input:hover {
+    border-bottom: 1px solid #e85c5c
+}

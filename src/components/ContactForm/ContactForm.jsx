@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Form } from './ContactForm.styled';
+import { Form, Input, Button } from './ContactForm.styled';
 import PropTypes from 'prop-types';
 
 export default class ContactForm extends Component {
@@ -10,14 +10,13 @@ export default class ContactForm extends Component {
 
   hendleSubmit = event => {
     event.preventDefault();
-    //  console.log(this.state);
+
     this.props.onSabmitForm(this.state);
-    //  console.log(event);
+
     this.reset();
   };
 
   hendelInputChange = event => {
-    // console.log(event.currentTarget)
     this.setState({
       [event.currentTarget.name]: event.currentTarget.value,
     });
@@ -37,7 +36,7 @@ export default class ContactForm extends Component {
         <Form onSubmit={this.hendleSubmit}>
           <label htmlFor="name">
             Name:
-            <input
+            <Input
               type="text"
               name="name"
               placeholder="enter name"
@@ -52,7 +51,7 @@ export default class ContactForm extends Component {
 
           <label htmlFor="number">
             Number:
-            <input
+            <Input
               type="tel"
               name="number"
               placeholder="enter number"
@@ -64,7 +63,7 @@ export default class ContactForm extends Component {
             />
           </label>
           <br />
-          <button type="submit">Add contact</button>
+          <Button type="submit">Add contact</Button>
         </Form>
         <br />
       </>
